@@ -315,14 +315,23 @@
     <h2 id="map">추리게임 운명맵 지도/파밍 위치</h2>
     <section class="section">
       <figure class="map-figure">
-        <img class="guide-map" src="destiny-map.png" alt="추리게임 운명맵 지도와 파밍 위치">
-        <figcaption class="small">NPC, 쓰레기통, 상호작용 장소, 아이템 위치, 퓨즈와 승강기 위치를 한눈에 확인하는 지도입니다.</figcaption>
+        <div style="position:relative;max-width:100%;width:fit-content;margin:auto">
+          <img class="guide-map" src="destiny-map.png" alt="추리게임 운명맵: 양쪽 비상계단 노란 점선 구역 중 버려진 가방 1개가 랜덤 생성">
+          <svg viewBox="0 0 577 744" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            <rect x="5" y="28" width="28" height="459" rx="8" fill="#facc15" fill-opacity=".14" stroke="#facc15" stroke-width="3" stroke-dasharray="7 5"/>
+            <rect x="520" y="28" width="29" height="459" rx="8" fill="#facc15" fill-opacity=".14" stroke="#facc15" stroke-width="3" stroke-dasharray="7 5"/>
+            <image href="abandoned-bag.png" x="5" y="323" width="28" height="34"/>
+            <image href="abandoned-bag.png" x="520" y="200" width="28" height="34"/>
+          </svg>
+        </div>
+        <figcaption class="small">노란 점선은 <strong>버려진 가방 생성 후보 구역</strong>입니다. 게임마다 왼쪽 또는 오른쪽 비상계단에 <strong>총 1개</strong>만 생성됩니다. 그림의 가방 아이콘은 구역 표시이며 고정 생성 위치가 아닙니다. 오른쪽 조규철 자리 한 칸은 제외됩니다.</figcaption>
       </figure>
     </section>
 
     <h2 id="flow">게임 진행 흐름</h2>
     <section class="section flow-section">
       <p><strong>승리 목표:</strong> 살인마는 설정된 횟수만큼 NPC/유저 살인에 성공하면 승리하고, 시민은 부검, 몸수색, 심증과 동선을 바탕으로 추리하여 투표로 살인자를 검거하면 승리합니다.</p>
+      <p><strong>플레이어 살인:</strong> ON 설정이면 고정 2회 제한 없이 생존자가 4명이 남을 때까지 가능합니다. 다른 사망이 없다면 8인 시작은 최대 4명, 7인은 3명, 6인은 2명, 5인은 1명입니다. 4인 이하는 플레이어 살인 OFF이며, 생존자 4명부터는 추가 플레이어 살인이 차단됩니다. 가스폭파는 이 제한의 예외입니다.</p>
       <p class="small">서버 내 운명 가이드북에 적힌 기본 흐름 기준입니다.</p>
       <ol class="flow-list">
         <li><strong>파밍</strong><span>처음 시작하면 흩어져 아이템 파밍을 합니다. 살인자가 첫 번째 살인을 내기 전까지 진행합니다.</span></li>
@@ -363,11 +372,19 @@
           <tr><td>경비실</td><td>손톱 / 테슬라 자동차키 / CCTV확인 / 얼음</td><td>4</td><td>얼음은 누전방지퓨즈/정전 관련 아이템.</td></tr>
           <tr><td>구내식당</td><td>응고제 / 식칼 / 쇠파이프 / 얼음</td><td>4</td><td>근접 무기와 정전 대응.</td></tr>
           <tr><td>커피숍</td><td>독판별 / 증거인멸 / 그라목손 / 비옷</td><td>4</td><td>코드 기준 방탄복이 아니라 비옷.</td></tr>
+          <tr><td>왼쪽·오른쪽 비상계단</td><td>버려진 가방 → 독판별 / 시체상태 / 돋보기 / 몸수색 중 1개 선택</td><td>가방 1개 · 선택 4종</td><td>슬라임 블록이 아닌 바닥 드롭. 게임마다 양쪽 계단 중 랜덤 위치 한 곳에 총 1개 생성. 오른쪽 조규철 자리 제외. 바라보고 좌/우클릭해야 획득.</td></tr>
         </tbody>
       </table>
     </div>
 
     <h2 id="items-general">일반 아이템 상세</h2>
+    <section class="notice" id="abandoned-bag">
+      <img src="abandoned-bag.png" alt="버려진 가방 아이템 이미지" width="74" height="89" style="float:left;object-fit:contain;margin:0 16px 10px 0">
+      <strong>버려진 가방</strong>: 게임 시작 시 좌측 계단 (-47~−44, 101, −63~18) 또는 우측 계단 (43~46, 101, −63~18)의 통행 가능한 바닥에 총 1개가 떨어져 있습니다. 조규철의 자리 한 칸에는 생성되지 않습니다.
+      <p>NPC와 플레이어는 자동으로 주울 수 없습니다. 가방을 바라보고 가까이에서 <strong>좌클릭 또는 우클릭</strong>하면 거미 사망 소리와 함께 가방 1개를 얻습니다. <strong>5칸 이내이며 벽에 가리지 않을 때</strong>만 노란색 ‘버려진 가방’ 홀로그램이 보입니다.</p>
+      <p>획득한 가방을 손에 들고 좌/우클릭하면 선택 GUI가 열립니다. <strong>독판별·시체상태·돋보기·몸수색 중 하나</strong>를 고르면 해당 도구를 얻고 가방은 사라집니다. 선택 전 GUI를 닫으면 가방은 유지됩니다. 가방은 일반 아이템이며, 선택한 조사 도구의 직업·대상 제한은 그대로 적용됩니다.</p>
+      <div style="clear:both"></div>
+    </section>
     <p class="small">인게임에서 <code>/help</code> 또는 채팅에 <code>help</code>를 입력하면 이 도움말이 열립니다. 이름의 (숫자)는 남은 사용 횟수이며 실제 아이템 수량과는 다릅니다. 독판별·관찰의 사용 횟수는 아이템별·사용자별로 관리됩니다.</p>
     <p class="small"><strong>독판별·관찰 넘겨주기 예시:</strong> 같은 도구라도 각 사용자는 처음 3회씩 사용할 수 있고, 사용 기록은 따로 남습니다. A가 1회 써서 A는 2회 남음 → B에게 넘겨 B가 2회 써서 B는 1회 남음 → 다시 A에게 돌려주면 A는 원래 기록대로 2회 남아 있습니다. 돌려받았다고 횟수가 초기화되거나 상대방 기록으로 바뀌지 않습니다. 도구 이름의 숫자는 현재 소지자의 남은 횟수를 표시합니다.</p>
     <div class="table-wrap">
@@ -396,6 +413,7 @@
           <tr><td>얼음, 누전방지퓨즈</td><td>발전기/퓨즈 구역.</td><td>살인마가 사용하면 30초 뒤 정전. 시민이 사용하면 5분 동안 정전 방지.</td></tr>
           <tr><td>녹음테이프</td><td>좌/우클릭으로 설정 GUI.</td><td>설정한 소리를 1회 재생. 시민은 호루라기/카톡만, 살인마는 리볼버/네일건/비명/가스폭파 등 모든 소리 가능.</td></tr>
           <tr><td>구급키트</td><td>모든 직업. NPC 시체 전용. 사망 후 30초 이내.</td><td>NPC 시체를 긴급 후송 처리하고 살인 카운트가 올라가지 않음. 플레이어 시체에는 사용 불가.</td></tr>
+          <tr><td>버려진 가방</td><td>모든 직업. 계단 바닥에서 좌/우클릭으로 획득.</td><td>손에 들고 좌/우클릭 → 독판별·시체상태·돋보기·몸수색 선택 GUI. 하나를 선택하면 도구 1개를 지급하고 가방 1개 소모. 선택 도구의 직업 제한은 유지.</td></tr>
         </tbody>
       </table>
     </div>
@@ -468,7 +486,7 @@
           <tr><td>펜토바르비탈</td><td>독 살인</td><td>비명 X, 혈흔 X. 60초 후 사망. 모두 사용 시 주사기 생성.</td></tr>
           <tr><td>염산테러</td><td>기타 살인</td><td>비명 O, 혈흔 O. 우클릭하면 시야 내 8칸 안 가장 가까운 대상 즉시 살인. 조준점보다 가까운 대상이 우선.</td></tr>
           <tr><td>테슬라 자동차키, 자동차키</td><td>기타 살인</td><td>비명 O, 혈흔 O. 오피스텔 밖 노란 자동차에서 우클릭 → GUI에서 NPC 선택 → 15초 후 살인. NPC 전용.</td></tr>
-          <tr><td>가스폭파</td><td>범위 폭발 살인</td><td>비명 X, 혈흔 X, 폭파음. 45초 후 가스폭발 에리어 안 NPC와 플레이어 전원 사망. 플레이어 살인 ON/OFF와 2인 제한의 예외.</td></tr>
+          <tr><td>가스폭파</td><td>범위 폭발 살인</td><td>비명 X, 혈흔 X, 폭파음. 45초 후 가스폭발 에리어 안 NPC와 플레이어 전원 사망. 플레이어 살인 ON/OFF와 생존자 4명 제한의 예외.</td></tr>
           <tr><td>지뢰</td><td>설치형 살인</td><td>비명 X, 혈흔 X, 폭파음. 설치 10초 뒤 활성화, 30초 지속하며 반경 1.5칸 감지. PLAYER면 플레이어만, NPC면 NPC만 감지. 대상 없이 끝나면 살인 실패 120초 쿨타임.</td></tr>
           <tr><td>원격C4기폭장치, 원격C4, 기폭 장치</td><td>설치형 살인</td><td>설치 후 10초 뒤 기폭 장치 지급. 활성 30초 안에 우클릭 폭파 가능하며 시간이 끝나면 자동 폭파. 반경 2칸 내 플레이어 1명 또는 NPC 1명 사망. 지연도구로 지급 대기와 활성 시간을 연장 가능. 설치자는 제외.</td></tr>
           <tr><td>지연도구</td><td>살인 보조</td><td>피살 대기시간 30초 연장. 맹독다트 중독 대기, C4 기폭 장치 지급 대기·활성 시간에도 사용 가능. 여러 개 연속 사용 시 누적되며 일반 120초 쿨타임·지뢰 시간은 늘리지 않음.</td></tr>
@@ -485,6 +503,7 @@
 
     <h2 id="counts">한 판 등장 가능 횟수</h2>
     <p class="small">c는 운영표 기준으로 스타팅(a), 파밍 후보(b), 공구상자/변환/기타 경로까지 포함한 최대 가능 횟수입니다. “알수없음”은 독/교살 사용 후 증거품으로 추가 생성될 수 있어 고정 수량으로 닫기 어려운 항목입니다.</p>
+    <p class="small"><strong>버려진 가방 경로:</strong> 가방은 파밍 1개입니다. 독판별·시체상태·돋보기·몸수색의 c값에는 가방 선택 경로 +1을 각각 반영했습니다. 단, 가방은 총 1개이며 네 도구 중 하나만 선택하므로 네 도구가 한 판에 모두 +1개씩 생기는 것은 아닙니다.</p>
     <div class="table-wrap">
       <table>
         <thead>
@@ -514,12 +533,13 @@
           <tr><td>일반</td><td>녹음테이프</td><td>1</td><td>0</td><td>4</td><td>공구상자로 얻을 수 있는 가능횟수 +3 포함.</td></tr>
           <tr><td>일반</td><td>호루라기</td><td>1</td><td>1</td><td>2</td><td></td></tr>
           <tr><td>일반</td><td>구급키트</td><td>1</td><td>1</td><td>2</td><td>NPC 시체 전용.</td></tr>
+          <tr><td>일반</td><td>버려진 가방</td><td>0</td><td>1</td><td>1</td><td>좌/우 비상계단 랜덤 위치에 한 판 총 1개. 조사 도구 네 종류 중 하나 선택.</td></tr>
           <tr><td>증거품</td><td>주사기</td><td>0</td><td>1</td><td>알수없음</td><td>독 아이템 소진으로 추가 생성 가능.</td></tr>
           <tr><td>증거품</td><td>손톱</td><td>0</td><td>1</td><td>알수없음</td><td>교살 도구 사용으로 추가 생성 가능.</td></tr>
-          <tr><td>직업</td><td>시체상태</td><td>2</td><td>1</td><td>3</td><td></td></tr>
-          <tr><td>직업</td><td>돋보기</td><td>2</td><td>1</td><td>3</td><td></td></tr>
-          <tr><td>직업</td><td>독판별</td><td>2</td><td>2</td><td>4</td><td></td></tr>
-          <tr><td>직업</td><td>몸수색</td><td>2</td><td>1</td><td>4</td><td>협조요청으로 얻을 수 있는 가능횟수 +1 포함.</td></tr>
+          <tr><td>직업</td><td>시체상태</td><td>2</td><td>1</td><td>4</td><td>버려진 가방으로 얻을 수 있음. 선택 경로 +1 포함.</td></tr>
+          <tr><td>직업</td><td>돋보기</td><td>2</td><td>1</td><td>4</td><td>버려진 가방으로 얻을 수 있음. 선택 경로 +1 포함.</td></tr>
+          <tr><td>직업</td><td>독판별</td><td>2</td><td>2</td><td>5</td><td>버려진 가방으로 얻을 수 있음. 선택 경로 +1 포함.</td></tr>
+          <tr><td>직업</td><td>몸수색</td><td>2</td><td>1</td><td>5</td><td>협조요청으로 얻을 수 있는 가능횟수 +1 및 버려진 가방으로 얻을 수 있는 +1 포함.</td></tr>
           <tr><td>직업</td><td>휴대용 금속 탐지기</td><td>2</td><td>1</td><td>3</td><td></td></tr>
           <tr><td>직업</td><td>관찰</td><td>2</td><td>1</td><td>3</td><td></td></tr>
           <tr><td>직업</td><td>CCTV확인</td><td>2</td><td>1</td><td>3</td><td></td></tr>
